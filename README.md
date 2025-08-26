@@ -1,71 +1,84 @@
-# traycer-mock README
+# Traycer Mock (VS Code Extension)
 
-This is the README for your extension "traycer-mock". After writing up a brief description, we recommend including the following sections.
+**Traycer Mock** is a simplified **MVP** that re-creates and simplifies the core idea behind [**Traycer AI**](https://traycer.ai).  
+It demonstrates the **"planning layer"** concept acting as a reasoning and orchestration layer on top of coding agents using the **Gemini AI SDK** inside a VS Code extension.
 
-## Features
+## About the Project
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Traycer AI’s vision is to **help developers think and build better by adding a planning layer on top of coding agents**.  
 
-For example if there is an image subfolder under your extension project workspace:
+This project is an **MVP mock**, created purely for the assessment, to show understanding of that vision. It does not attempt to be a full implementation but rather highlights the **core planning workflow**:
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+- Provides **clarification questions** before coding.  
+- Generates **step-by-step plans** for development tasks.  
+- Demonstrates how a **planning-first workflow** can sit between a developer and coding agents.
 
 ---
 
-## Following extension guidelines
+## ⚠️ Note:  
+This is not the actual Traycer AI product. It is a **mock MVP created solely for the assignment** to demonstrate understanding of the idea.
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+---
+ 
+## Features
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+- **Planning Layer Simulation** – Generates structured plans and clarifications.  
+- **Gemini AI SDK Integration** – Uses Gemini models for reasoning.  
+- **Interactive Sidebar** – Simple and easy to use inside VS Code.  
+- **Session Context** – Keeps track of user queries during a session.  
+- **MVP-First Approach** – Focused on recreating and simplifying the concept, not production scale.  
 
-## Working with Markdown
+## 🛠️ Tech Stack
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+- **TypeScript** – Primary implementation  
+- **Node.js** – Runtime  
+- **VS Code Extension API** – For building the extension  
+- **Gemini SDK** – For AI-powered reasoning and planning  
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+## Installation
 
-## For more information
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/<your-username>/traycer-mock.git
+   cd traycer-mock
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Open the project in VS Code.
+4. Press F5 to run the extension in a new Extension Development Host window.
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+## Configuration
+The Gemini API key is required for the extension to work.
+There are two steps to set it up:
+1. (Optional for local dev) Create a .env file in the project root and add your key:
 
-**Enjoy!**
+```
+GEMINI_API_KEY=your_api_key_here
+```
+2. (Required for usage inside VS Code) Go to VS Code Settings → search for "Traycer Mock" → enter your Gemini API key in the extension’s settings field.
+- This is the key actually used by the extension at runtime.
+- Without setting it here, the extension will not function.
+
+## Usage & Vision Alignment
+
+1. Open the Traycer Mock Sidebar from the VS Code activity bar.
+
+2. Ensure your Gemini API key is set in the extension settings.
+
+3. Ask for a plan or clarification before coding.
+Example queries:
+- “Generate a plan for building a Todo App in React”
+- “What clarifications do I need before making a backend API project?”
+
+4. The extension will return structured steps or clarifying questions, simulating the planning layer idea.
+
+By guiding the user to ask clarifying questions first, generate structured plans, and think like a builder before coding, this MVP captures the essence of Traycer AI’s vision in a simplified, working form.
+
+## Video Demo
+Watch the demo video here: [Demo Link](https://drive.google.com/file/d/1jhNuirYCYTL1jUXA5_j7ef7f6GhFpfld/view?usp=sharing)
+
+---
+
+Made with ❤️ by [Dishika Vaishkiyar](https://github.com/Dishika18)
