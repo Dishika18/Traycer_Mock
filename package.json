@@ -1,0 +1,85 @@
+{
+  "name": "traycer-mock",
+  "displayName": "traycer_mock",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Traycer Mock",
+      "properties": {
+        "traycer.geminiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Your Gemini API Key for AI features",
+          "markdownDescription": "Your Gemini API Key. You can get one from [Google AI Studio](https://makersuite.google.com/app/apikey)"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "traycer-sidebar",
+          "title": "Traycer Planner",
+          "icon": "$(robot)"
+        }
+      ]
+    },
+    "views": {
+      "traycer-sidebar": [
+        {
+          "type": "webview",
+          "id": "traycer-planner-webview",
+          "name": "Planner",
+          "when": "true"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "traycer.generatePlan",
+        "title": "Generate Plan"
+      },
+      {
+        "command": "traycer.executeToIDE",
+        "title": "Execute to IDE"
+      },
+      {
+        "command": "traycer.submitClarification",
+        "title": "Submit Clarification"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.103.0",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.32.0",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^17.2.1"
+  }
+}
