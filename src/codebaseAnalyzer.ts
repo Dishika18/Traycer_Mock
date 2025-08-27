@@ -123,7 +123,6 @@ export class CodebaseAnalyzer {
   private detectFrameworks(files: FileInfo[], dependencies: string[]): string[] {
     const frameworks: string[] = []
 
-    // Check dependencies
     if (dependencies.includes("next")) frameworks.push("Next.js")
     if (dependencies.includes("react")) frameworks.push("React")
     if (dependencies.includes("vue")) frameworks.push("Vue.js")
@@ -133,7 +132,6 @@ export class CodebaseAnalyzer {
     if (dependencies.includes("tailwindcss")) frameworks.push("Tailwind CSS")
     if (dependencies.includes("typescript")) frameworks.push("TypeScript")
 
-    // Check config files
     if (files.some((f) => f.path.includes("next.config"))) frameworks.push("Next.js")
     if (files.some((f) => f.path.includes("vite.config"))) frameworks.push("Vite")
     if (files.some((f) => f.path.includes("tailwind.config"))) frameworks.push("Tailwind CSS")

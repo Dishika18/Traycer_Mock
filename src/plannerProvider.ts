@@ -71,7 +71,6 @@ export class PlannerProvider implements vscode.TreeDataProvider<PlannerItem> {
 
     items.push(new PlannerItem(`🎯 Traycer Mock Planner`, vscode.TreeItemCollapsibleState.None, "header"))
 
-    // Input section
     items.push(new PlannerItem("📝 User Request", vscode.TreeItemCollapsibleState.None, "section-header"))
 
     if (this.workflowState.userRequest) {

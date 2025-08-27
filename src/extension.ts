@@ -5,7 +5,7 @@ import { FileManipulator } from "./fileManipulator"
 import { SidebarProvider } from "./sidebarProvider"
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log("Traycer Mock extension is now active!")
+  // console.log("Traycer Mock extension is now active!")
 
   const geminiService = new GeminiService()
   const fileManipulator = new FileManipulator()
@@ -19,7 +19,6 @@ export function activate(context: vscode.ExtensionContext) {
 
   const plannerProvider = new PlannerProvider(context, geminiService, fileManipulator)
 
-  // Register commands
   const generatePlanCommand = vscode.commands.registerCommand("traycer.generatePlan", () => {
     plannerProvider.generatePlan()
   })

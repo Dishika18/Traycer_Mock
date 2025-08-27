@@ -456,9 +456,6 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
             overflow-wrap: anywhere;
         }
 
-        /* Let the page handle scrolling; avoid nested scrollbars */
-
-        /* Ensure long filenames and headings wrap */
         .plan-item strong, .copilot-prompt strong {
             word-break: break-word;
             overflow-wrap: anywhere;
@@ -469,7 +466,6 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
             display: none !important; 
         }
         
-        /* Phase containers */
         #requestPhase, #clarificationPhase, #planPhase, #copilotPhase {
             animation: fadeIn 0.3s ease-in-out;
         }
@@ -479,7 +475,6 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Questions styling */
         #questionsContainer p {
             margin: 12px 0;
             padding: 12px;
@@ -492,7 +487,6 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
             color: var(--vscode-charts-blue);
         }
         
-        /* Responsive design */
         @media (max-width: 400px) {
             .container {
                 padding: 16px;
@@ -602,7 +596,6 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 
         let currentPlan = null;
 
-        // Event listeners
         generateBtn.addEventListener('click', () => {
             const request = requestInput.value.trim();
             if (request) {
@@ -637,7 +630,6 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
             });
         });
 
-        // Message handling
         window.addEventListener('message', event => {
             const message = event.data;
             
@@ -731,7 +723,6 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
             const promptEl = document.getElementById('prompt-' + index);
             const promptText = promptEl ? promptEl.textContent : '';
             navigator.clipboard.writeText(promptText).then(() => {
-                // Visual feedback
                 const btn = event.target;
                 const originalText = btn.textContent;
                 btn.textContent = 'Copied!';
